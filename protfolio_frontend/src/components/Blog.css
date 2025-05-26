@@ -13,6 +13,25 @@
   
   .blogs-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .blog-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    flex: 1 1 300px;
+    max-width: 370px;
+  }
+  
+
+  /* .blogs-container {
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -35,13 +54,9 @@
     transition: transform 0.3s ease, max-height 0.5s ease;
     overflow: hidden;
     max-height: 400px;
-  }
+  } */
   
-  
-  .blog-card.expanded {
-    max-height: 1000px; /* adjust as needed based on content */
-  }
-  
+
   .blog-card:hover {
     transform: translateY(-5px);
   }
@@ -66,5 +81,86 @@
   
   .read-more-btn:hover {
     background-color: #004d40;
+  }
+  
+  /* Mobile Devices (max-width: 600px) */
+  @media (max-width: 600px) {
+    .blog-section {
+      padding: 2rem 1rem;
+    }
+  
+    .blog-section h2 {
+      font-size: 2rem;
+    }
+  
+    .blogs-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .blog-card {
+      width: 100%;
+      max-width: 100%;
+      padding: 1.5rem;
+    }
+  
+    .blog-card h3 {
+      font-size: 1rem;
+    }
+  
+    .read-more-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Tablets (601px to 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .blog-section {
+      padding: 3rem 1.5rem;
+    }
+  
+    .blog-section h2 {
+      font-size: 2.2rem;
+    }
+  
+    .blog-card {
+      flex: 1 1 45%;
+      max-width: 340px;
+      padding: 1.8rem;
+    }
+  
+    .blog-card h3 {
+      font-size: 1.1rem;
+    }
+  
+    .read-more-btn {
+      padding: 0.55rem 1.1rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Large Screens (1025px and above) */
+  @media (min-width: 1025px) {
+    .blog-section {
+      padding: 4rem 6rem;
+    }
+  
+    .blog-section h2 {
+      font-size: 2.5rem;
+    }
+  
+    .blog-card {
+      max-width: 370px;
+      padding: 2rem;
+    }
+  
+    .blog-card h3 {
+      font-size: 1.2rem;
+    }
+  
+    .read-more-btn {
+      font-size: 1rem;
+    }
   }
   

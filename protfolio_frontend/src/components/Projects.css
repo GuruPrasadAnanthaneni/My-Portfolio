@@ -2,6 +2,7 @@
     padding: 60px 20px;
     background-color: #f9f9f9;
     text-align: center;
+    overflow-x: hidden;
   }
   
   .projects-section h2 {
@@ -14,13 +15,11 @@
   
   .projects-grid {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
-    overflow-x: auto;
     padding: 10px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
   
   .project-card {
@@ -29,11 +28,10 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     padding: 25px 30px;
     text-align: left;
-    min-width: 320px;
+    width: 100%;
     max-width: 400px;
-    scroll-snap-align: start;
     transition: transform 0.3s ease;
-    flex-shrink: 0;
+    box-sizing: border-box;
   }
   
   .project-card:hover {
@@ -93,7 +91,7 @@
     font-size: 0.95rem;
   }
   
-  /* Optional scrollbar customization */
+  /* Scrollbar styles (optional) */
   .projects-grid::-webkit-scrollbar {
     height: 10px;
   }
@@ -102,10 +100,54 @@
     background-color: #ccc;
     border-radius: 10px;
   }
-
   
-
-
+  /* Mobile Devices (max-width: 600px) */
+  @media (max-width: 600px) {
+    .projects-section {
+      padding: 40px 10px;
+    }
   
-
+    .projects-section h2 {
+      font-size: 2rem;
+    }
+  
+    .projects-grid {
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;      /* ✅ No horizontal scroll */
+      scroll-snap-type: none;  /* ✅ Disable scroll snapping */
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .project-card {
+      width: 100%;             /* ✅ Full width of parent */
+      max-width: 100%;
+    }
+  }
+  
+  /* Tablets (601px to 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .projects-section {
+      padding: 50px 15px;
+    }
+  
+    .projects-section h2 {
+      font-size: 2.2rem;
+    }
+  
+    .projects-grid {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding-left: 15px;
+      padding-right: 15px;
+      overflow-x: hidden;
+    }
+  
+    .project-card {
+      min-width: 300px;
+      max-width: 90%;
+    }
+  }
   
